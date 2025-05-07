@@ -1,86 +1,174 @@
-'use client'
+import Image from "next/image";
+import { Roboto_Mono, Pacifico } from "next/font/google";
+import { FaPython, FaDocker, FaGitAlt } from "react-icons/fa";
+import { SiFastapi, SiStreamlit, SiNumpy, SiPandas, SiPytorch } from "react-icons/si";
+import { VscCode } from "react-icons/vsc";
+import { MdGraphicEq } from "react-icons/md"; // Or any other placeholder
 
-import { motion } from 'framer-motion'
-import Image from 'next/image'
+
+const robotoMono = Roboto_Mono({ subsets: ["latin"], weight: "400" });
+const pacifico = Pacifico({ subsets: ["latin"], weight: "400" });
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-black text-white">
-      {/* Hero Section */}
-      <section className="flex flex-col items-center justify-center text-center px-6 py-24 space-y-8">
-        <motion.div
-          initial={{ scale: 0.9, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 0.8 }}
-          className="w-44 h-44 md:w-56 md:h-56 shadow-xl"
-      >
-          <Image
-            src="/Emoji.png"
-            alt="Vedanti Avatar"
-            width={224}
-            height={224}
-            className="w-full h-full object-cover"
-          />
-        </motion.div>
+    <>
+      {/* HERO SECTION */}
+      <section className="min-h-screen bg-black text-white flex items-center justify-center px-6">
+        <div className="max-w-7xl w-full flex flex-col md:flex-row items-center justify-between gap-12">
+          {/* LEFT SIDE TEXT */}
+          <div className={`text-left ${robotoMono.className}`}>
+            <h1 className="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight">
+              HI – I’M VEDANTI
+            </h1>
+            <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight mt-8">
+              I’M AN AI ENGINEER
+            </h2>
+          </div>
 
-        <motion.h2
-          initial={{ opacity: 0, y: 0.9 }}
-          animate={{ opacity: 1, y: 1 }}
-          transition={{ duration: 0.5, delay: 0.5 }}
-          className="text-2xl md:text-3xl font-light text-white"
-        >
-          Hi, I'm
-        </motion.h2>
-
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="text-4xl md:text-6xl font-bold text-white"
-        >
-          Vedanti Saxena
-        </motion.h1>
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-gray-400 max-w-2xl text-lg md:text-xl px-4"
-        >
-          Associate AI Engineer passionate about building intelligent, creative systems that feel both human and elegant.
-        </motion.p>
-  
+          {/* RIGHT SIDE IMAGE + CAPTION */}
+          <div className="flex flex-col items-center -ml-4"> {/* Adjust ml as needed */}
+            <Image
+              src="/vedanti-avatar.png"
+              alt="Vedanti"
+              width={220}
+              height={220}
+              className="rounded-full border border-gray-700"
+            />
+            <p className={`mt-2 text-lg text-gray-400 ${pacifico.className}`}>
+              This is me!
+            </p>
+          </div>
+        </div>
       </section>
 
-      {/* About Me Section (like a second screen) */}
-      <section className="min-h-screen flex items-center justify-center px-4 md:px-8 lg:px-16">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          viewport={{ once: true }}
-          className="bg-[#121212] border border-gray-800 rounded-2xl p-6 md:p-10 flex flex-col md:flex-row items-center justify-between gap-6 max-w-5xl w-full"
-        >
-          {/* Text */}
-          <div className="flex-1 text-left">
-            <h2 className="text-2xl md:text-3xl font-bold mb-2">About Me</h2>
-            <p className="text-gray-300 text-base md:text-lg max-w-xl">
-              I’m Vedanti, an Associate AI Engineer with a love for emotionally-intelligent and elegant systems.
-              I blend deep tech and UX to create solutions people actually enjoy using.
+      {/* ABOUT ME SECTION */}
+      <section className="min-h-screen bg-black text-white px-6 py-12">
+        <div className="max-w-7xl w-full flex flex-col md:flex-row items-center justify-between gap-12">
+          
+          {/* LEFT SIDE IMAGE */}
+          <div className="flex justify-center md:w-1/3">
+            <Image
+              src="/vedanti-avatar.png"
+              alt="Vedanti"
+              width={220}
+              height={220}
+              className="rounded-full border border-gray-700"
+            />
+          </div>
+
+          {/* RIGHT SIDE CONTENT */}
+          <div className="md:w-2/3">
+          <h2 className={`text-4xl font-extrabold tracking-tight mb-4 ${robotoMono.className}`}>
+            A Little About Me
+           </h2>
+            <p className="text-lg leading-relaxed text-gray-400">
+              Hello! I'm Vedanti, an AI Engineer passionate about building innovative solutions
+              to solve complex problems using Artificial Intelligence. I specialize in deep learning,
+              natural language processing, and machine learning techniques. My journey started with a
+              fascination for data and algorithms, and over the years, I’ve honed my skills to create
+              tools that help improve productivity and enhance the user experience. I believe in
+              decentralizing knowledge and making AI accessible to everyone.
+            </p>
+            <p className="mt-4 text-lg text-gray-400">
+              When I’m not working on AI projects, you’ll find me exploring new technologies,
+              reading about the latest in AI research, or experimenting with creative coding projects.
+              I’m constantly learning, and I enjoy collaborating with others to bring ideas to life.
             </p>
           </div>
 
-          {/* Image */}
-          <div className="w-28 h-28 md:w-36 md:h-36 shrink-0">
-            <Image
-              src="/Emoji_1.png"
-              alt="Vedanti"
-              width={144}
-              height={144}
-              className="w-full h-full object-contain mix-blend-lighten"
-            />
-          </div>
-        </motion.div>
+        </div>
       </section>
-    </main>
-  )
+
+      {/* TOOLS BANNER SECTION */}
+<section className="bg-gray-100 text-black py-12 px-6">
+  <div className="max-w-7xl mx-auto">
+    <h2 className="text-3xl font-bold mb-6">Tools I Work With</h2>
+
+    <div className="flex space-x-10 overflow-x-auto py-4 scrollbar-hide">
+      {/* Tool 1 */}
+      <div className="flex flex-col items-center min-w-[100px]">
+        <FaPython className="text-5xl text-blue-500" />
+        <p className="mt-2 text-sm font-medium">Python</p>
+      </div>
+      {/* Tool 2 */}
+      <div className="flex flex-col items-center min-w-[125px]">
+        <FaDocker className="text-5xl text-blue-400" />
+        <p className="mt-2 text-sm font-medium">Docker</p>
+      </div>
+      {/* Tool 3 */}
+      <div className="flex flex-col items-center min-w-[125px]">
+        <FaGitAlt className="text-5xl text-red-600" />
+        <p className="mt-2 text-sm font-medium">Git</p>
+      </div>
+      {/* Tool 4 */}
+      <div className="flex flex-col items-center min-w-[125px]">
+        <SiFastapi className="text-5xl text-green-600" />
+        <p className="mt-2 text-sm font-medium">FastAPI</p>
+      </div>
+      {/* Tool 5 */}
+      <div className="flex flex-col items-center min-w-[125px]">
+        <SiStreamlit className="text-5xl text-pink-600" />
+        <p className="mt-2 text-sm font-medium">Streamlit</p>
+      </div>
+      {/* Tool 6 */}
+      <div className="flex flex-col items-center min-w-[125px]">
+      <MdGraphicEq className="text-5xl text-yellow-500" />
+        <p className="mt-2 text-sm font-medium">Gradio</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{/* SHowcase  SECTION */}
+<section className="bg-black text-white py-16 px-6">
+  <div className="max-w-7xl mx-auto">
+    <h2 className="text-3xl font-bold mb-12">Things I've Built</h2>
+
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+      {[1, 2, 3, 4, 5, 6].map((_, i) => (
+        <div
+          key={i}
+          className="bg-white text-black p-4 rounded-xl shadow-xl transform hover:-rotate-2 transition-all"
+        >
+          <img
+            src={`/projects/project${i + 1}.jpg`} // Replace with actual paths like /projects/gradio-dashboard.jpg
+            alt={`Project ${i + 1}`}
+            className="rounded-md mb-4 w-full h-48 object-cover"
+          />
+          <h3 className="font-bold text-lg mb-1">Project Title {i + 1}</h3>
+          <p className="text-sm text-gray-600">Short description or stack tag</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+{/*Contact Sction*/}
+<section className="bg-black text-white py-16 px-6">
+  <h2 className="text-3xl font-bold mb-8">Get in Touch</h2>
+  <form className="space-y-4">
+    <input
+      type="text"
+      placeholder="Your Name"
+      className="w-full p-3 bg-gray-800 text-white rounded-lg"
+    />
+    <input
+      type="email"
+      placeholder="Your Email"
+      className="w-full p-3 bg-gray-800 text-white rounded-lg"
+    />
+    <textarea
+      placeholder="Your Message"
+      rows="5"
+      className="w-full p-3 bg-gray-800 text-white rounded-lg"
+    ></textarea>
+    <button type="submit" className="w-full py-3 bg-blue-500 text-white rounded-lg">
+      Send Message
+    </button>
+  </form>
+</section>
+
+
+</>
+  );
 }
