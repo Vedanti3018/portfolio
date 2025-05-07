@@ -1,17 +1,21 @@
-import './globals.css'
+import "./globals.css"; // if using Tailwind
 import Link from 'next/link'
 import { MdEmail } from 'react-icons/md'
 
-export const metadata = {
-  title: 'Vedanti Saxena | AI Portfolio',
-  description: 'Portfolio website of an Associate AI Engineer',
-}
+import { Roboto_Mono } from "next/font/google";
 
-export default function RootLayout({ children }) {
+const robotoMono = Roboto_Mono({ subsets: ["latin"], weight: "400" });
+
+export const metadata = {
+  title: "Vedanti Saxena",
+  description: "AI Portfolio",
+};
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className="bg-black text-white font-sans">
-        <header className="px-8 py-6 flex justify-between items-center bg-black border-b border-gray-800">
+      <body className={robotoMono.className}>
+      <header className="px-8 py-6 flex justify-between items-center bg-black border-b border-gray-800">
           {/* Left: Logo or Email */}
           <div className="flex items-center space-x-2 text-white">
             <MdEmail className="text-2xl border border-gray-600 rounded-full p-1" />
